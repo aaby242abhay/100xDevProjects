@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function todo(){
+        const title = document.getElementById("t").value;
+        const description = document.getElementById("des").value;
+        const originalHTml = document.getElementById("container").innerHTML
+        // document.getElementById("container").innerHTML = originalHTml + `
+        //     <div>
+        //         <div>${title}</div>
+        //         <div>${description}</div>
+        //         <button>Mark as Done</button>
+        //     </div>
+        // `
+
+        //better way ---> document.createElement
+        const childDiv = document.createElement("div")
+        childDiv.innerHTML = title;
+        document.getElementById("container").appendChild(childDiv);
+    }
+</script>
+<body>
+    <div>
+        <input id="t" type="text" placeholder="title">
+        <br></br>
+        <input id = "des" type="text" placeholder="description">
+        <br></br>
+        <button onclick="todo()">Add ToDo</button>
+        <br></br>
+        <div id="container">
+
+        </div>
+    </div>
+    
+</body>
+</html>

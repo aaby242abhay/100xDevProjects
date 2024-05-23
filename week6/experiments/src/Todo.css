@@ -1,0 +1,33 @@
+.my-component {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft box shadow */
+    background-color: #ffffff; /* White background */
+    transition: transform 0.2s ease-in-out; /* Smooth hover effect */
+  
+    /* Gradient background */
+    background-image: linear-gradient(to bottom right, #f0f0f0, #ffffff);
+  }
+  
+  .my-component:hover {
+    transform: translateY(-4px); /* Lift on hover */
+  }
+  
+  .my-component h2 {
+    color: #333333;
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: bold; /* Bold title */
+  }
+  
+  .my-component p {
+    color: #666666;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+  
+  .my-component p:last-child {
+    margin-bottom: 0; /* Remove margin for the last paragraph */
+  }
+  

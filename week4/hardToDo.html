@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    async function calcSI(){
+        const p = parseInt(document.getElementById("p").value);
+        const r = parseInt(document.getElementById("r").value);
+        const t = parseInt(document.getElementById("t").value);
+
+        console.log(p + r + t);
+
+        const response = await fetch("http://localhost:3000/getSI",{
+            method : "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                "p" : p,
+                "r" : r,
+                "t" : t
+            })
+        })
+        console.log(response);
+        const data = await response.json();
+        console.log(data);
+        document.getElementById("result").innerHTML = data.simpleInterest;
+        
+    }
+</script>
+<style>
+    .class{
+        background: #a03030;
+    }
+</style>
+<body>
+    <input class="abc" type="text" id="p" placeholder="Principle"><br>
+    <input class="abc" type="text" id="r" placeholder="Rate"><br>
+    <input class="abc" type="text" id="t" placeholder="Time"><br>
+    <button onclick = "calcSI()">Calculate SI</button> <br>
+
+    <div id="result"></div>
+    
+</body>
+</html>

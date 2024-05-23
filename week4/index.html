@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    let timeout;
+    function popDiv2(){
+        clearTimeout(timeout);              //clear the previous timeout if any
+        timeout = setTimeout(()=>{          //and start a new timeout
+            popDiv()
+        }, 2*1000);
+
+        
+    }
+    async function popDiv(){
+        fetch("http://localhost:3000/getSum",{
+            method : "get",
+            headers : {
+                a : document.getElementById("n1").value,
+                b : document.getElementById("n2").value
+            }
+        })
+        .then((response) =>{
+            console.log(response);
+            response.json()
+            .then((data) =>{
+                document.getElementById("finalSum").innerHTML = data.sum;
+                console.log(data);
+            })
+        })
+        
+    }
+</script>
+<style>
+    .abc{
+        background: rgb(155, 152, 154);
+        font-variant-numeric: diagonal-fractions;
+        padding: 100;
+        
+    }
+    input::placeholder {
+            color: #0b0911; /* Set placeholder color to light gray */
+    }
+</style>
+<body>
+    <input oninput = "popDiv2()" id = "n1" class= "abc" type="text" placeholder="First Number">
+    <br></br>
+    <input oninput = "popDiv2()" id = "n2" class = "abc" type="text" placeholder="Second NUmber">
+    <br></br>
+    <button onclick="popDiv()">Calculate Sum</button>
+    <br></br>
+    <div id="finalSum"> </div>
+    <br></br>
+
+
+</body>
+</html>

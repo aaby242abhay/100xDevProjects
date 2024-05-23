@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function render(){
+        
+        const val = document.getElementById("bt").innerHTML
+        console.log(val);
+        const cntr = val.split(" ")[1];
+        const newCntr = parseInt(cntr) + 1;
+        document.getElementById("bt").innerHTML = "Counter " + newCntr;
+    }
+</script>
+<body>
+    <div>
+        <button onclick = "render()" id="bt">Counter 0</button>
+    </div>
+    
+</body>
+</html>
