@@ -3,6 +3,7 @@
 import axios from "axios";
 import { ChangeEventHandler, useState } from "react";
 import { useRouter } from "next/navigation";
+import serverAction from "@/actions/user";
 
 export function Signup() {
     const [username, setUsername] = useState("");
@@ -10,11 +11,8 @@ export function Signup() {
     const router = useRouter();
 
     const handler = async () => {
-        await axios.post("http://localhost:3000/api/user", {
-            username,
-            password
-        })
-        router.push("/");
+        serverAction(username, password);
+        router.push('/');
     }
 
     return <div className="h-screen flex justify-center flex-col">

@@ -1,7 +1,6 @@
 import { NextRequest } from "next/server"
-import {PrismaClient} from "@prisma/client"
 
-const client = new PrismaClient();
+import client from "@/db"
 
 export function GET(req : Request){
     return  Response.json({
